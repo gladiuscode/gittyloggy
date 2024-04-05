@@ -45,7 +45,7 @@ Changelogs
 
 ${commitsWithOnlyMergedPRs.join('\n')}
 
-Generato da GittyLoggy (Sono uno script in Typescript 🤖)
+Generato da [GittyLoggy](https://github.com/gladiuscode/gittyloggy) (Sono uno script in Typescript 🤖)
     `
 }
 
