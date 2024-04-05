@@ -1,0 +1,31 @@
+{
+  "name": "gittyloggy",
+  "version": "1.0.0",
+  "main": "dist/index",
+  "source": "index",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "git",
+    "javascript",
+    "typescript",
+    "changelogs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gladiuscode/gittyloggy.git"
+  },
+  "author": "gladiuscode <gladiusservices@protonmail.com> (https://github.com/gladiuscode)",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.4",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.4.4"
+  },
+  "packageManager": "yarn@3.6.1"
+}
