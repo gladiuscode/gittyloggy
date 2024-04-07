@@ -14,24 +14,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.4.5":
-  version: 16.4.5
-  resolution: "dotenv@npm:16.4.5"
-  checksum: 301a12c3d44fd49888b74eb9ccf9f07a1f5df43f489e7fcb89647a2edcd84c42d6bc349dc8df099cd18f07c35c7b04685c1a4f3e6a6a9e6b30f8d48c15b7f49c
-  languageName: node
-  linkType: hard
-
 "gittyloggy@workspace:.":
   version: 0.0.0-use.local
   resolution: "gittyloggy@workspace:."
   dependencies:
     "@types/node": ^20.12.4
-    dotenv: ^16.4.5
+    prettier: ^3.2.5
     typescript: ^5.4.4
   bin:
     cl: ./dist/index.js
   languageName: unknown
   linkType: soft
+
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 2ee4e1417572372afb7a13bb446b34f20f1bf1747db77cf6ccaf57a9be005f2f15c40f903d41a6b79eec3f57fff14d32a20fb6dee1f126da48908926fe43c311
+  languageName: node
+  linkType: hard
 
 "typescript@npm:^5.4.4":
   version: 5.4.4
