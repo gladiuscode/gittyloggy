@@ -19,8 +19,12 @@ npm --save-dev gittyloggy
 
 Add a new script to your project package.json
 
-```
-"gitty": "cl"
+```json5
+{
+  "scripts": {
+    "gitty": "cl"
+  }
+}
 ```
 
 Then add a new .gitty.config.json file in the root of your project with the following properties
