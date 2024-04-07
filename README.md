@@ -38,5 +38,6 @@ This command will output a proper changelog that you can copy and paste wherever
 
 ## Roadmap
 
-- [] Release this as a devDependency on npm
+- [] Release on npm
 - [] Add support for multiple languages
+- [] Add support to run plugins so that each changelog output can be further customize to meet devs needs
