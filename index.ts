@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
 import dotenv from 'dotenv';
 dotenv.configDotenv();
 
-import generageChangelogs from "./src/generageChangelogs";
+import buildChangelogs from "./src/buildChangelogs";
 
-generageChangelogs().then(console.log)
+buildChangelogs().then(console.log)
+

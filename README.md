@@ -3,24 +3,36 @@
 This library can be used in your projects to properly generate a changelog
 that all your PMs and Testers all around the world love so much.
 
-To properly function it needs a tag commit that represent the last release and
-a logs.txt file under a /data folder in the root of the project.
+## Installation
+
+```bash
+yarn -D gittyloggy
+```
+
+Or using npm
+
+```bash
+npm --save-dev gittyloggy
+```
 
 ## How to use
 
-In your project root run the following command to produce the logs file:
+Add a new script to your project package.json
 
-```bash
-git log --pretty=format:"%d %s" >> logs.txt
+```
+"changelogs": "cl"
 ```
 
-Then you can move this file in the /data folder inside this project and run
-the following commands:
+Then add a new .env file in the root of your project with the following keys
 
-```bash
-yarn build
-yarn start
+```dotenv
+PEOPLE_TAGS=<nicknames>
+PIPELINE_URL=<url_to_your_pipeline_running>
+VERSION=<version>
+TAG=<git_tag_to_reference_from>
 ```
+
+This command will output a proper changelog that you can copy and paste wherever you need to.
 
 ## Roadmap
 
