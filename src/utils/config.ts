@@ -5,6 +5,7 @@ export interface Config {
   PIPELINE_URL: string;
   VERSION: string;
   TAG: string;
+  ONLY_MERGED_PRS: boolean;
 }
 
 const openConfig = async () => {
@@ -27,6 +28,7 @@ const ConfigUtils = {
     if (!config.PIPELINE_URL) throw new Error('PIPELINE_URL config property is missing');
     if (!config.PEOPLE_TAGS) throw new Error('PEOPLE_TAGS config property is missing');
     if (!config.TAG) throw new Error('TAG config property is missing');
+    if (!config.ONLY_MERGED_PRS) throw new Error('ONLY_MERGED_PRS config property is missing');
 
     return config as Config;
   },
