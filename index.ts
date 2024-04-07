@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-import dotenv from 'dotenv';
-dotenv.configDotenv();
-
 import buildChangelogs from "./src/buildChangelogs";
 
-buildChangelogs().then(console.log)
+buildChangelogs().then(console.log).catch(error => console.log('[GittyLoggy] failed with the following error: ', error));
 

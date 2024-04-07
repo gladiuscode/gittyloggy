@@ -20,16 +20,18 @@ npm --save-dev gittyloggy
 Add a new script to your project package.json
 
 ```
-"changelogs": "cl"
+"gitty": "cl"
 ```
 
-Then add a new .env file in the root of your project with the following keys
+Then add a new .gitty.config.json file in the root of your project with the following properties
 
-```dotenv
-PEOPLE_TAGS=<nicknames>
-PIPELINE_URL=<url_to_your_pipeline_running>
-VERSION=<version>
-TAG=<git_tag_to_reference_from>
+```json5
+{
+  "PEOPLE_TAGS": "your pm and testers tags",
+  "PIPELINE_URL": "your pipeline url",
+  "VERSION": "your version",
+  "TAG": "your tag to look up to"
+}
 ```
 
 This command will output a proper changelog that you can copy and paste wherever you need to.

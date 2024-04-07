@@ -1,11 +1,5 @@
 import {exec} from "child_process";
-
-const checkEnv = () => {
-    if (!process.env.VERSION) throw new Error('VERSION env variable is missing');
-    if (!process.env.PIPELINE_URL) throw new Error('PIPELINE_URL env variable is missing');
-    if (!process.env.PEOPLE_TAGS) throw new Error('PEOPLE_TAGS env variable is missing');
-    if (!process.env.TAG) throw new Error('TAG env variable is missing');
-}
+import ConfigUtils from "./utils/config";
 
 const createLogs = async () => new Promise<string>((resolve, reject) => exec('git log --pretty=format:"%d %s"', (error, stdout) => {
     if (error) {
@@ -20,18 +14,16 @@ const getLastTagIndex = (commits: string[], tag: string) => commits.findIndex(co
 
 const getCommitsBeforeLastTag = (commits: string[], tagIndex: number) => commits.slice(0, tagIndex);
 
-const getPeopleTags = () => process.env.PEOPLE_TAGS.split(',').map(tag => `@${tag}`).join(' ');
-
 const buildChangelogs = async () => {
-    checkEnv();
+    const config = await ConfigUtils.build();
 
     const logs = await createLogs();
 
     const iterableLogs = logs.split('\n');
 
-    const firstTagIndex = getLastTagIndex(iterableLogs, process.env.TAG);
+    const firstTagIndex = getLastTagIndex(iterableLogs, config.TAG);
 
-    if (firstTagIndex === -1) return console.log(`No ${process.env.TAG} tag found in logs`);
+    if (firstTagIndex === -1) return console.log(`No ${config.TAG} tag found in logs`);
 
     const commits = getCommitsBeforeLastTag(iterableLogs, firstTagIndex);
 
@@ -39,13 +31,13 @@ const buildChangelogs = async () => {
 
     const commitsWithOnlyMergedPRs = commitsWithoutTags.filter(commit => commit.toLowerCase().includes('merged'));
 
-    const peopleTags = getPeopleTags();
+    const peopleTags = config.PEOPLE_TAGS.split(',').map(tag => `@${tag}`).join(' ');
 
     return `
 ${peopleTags}  
     
-Versione: ${process.env.VERSION}
-[Link Rilascio](${process.env.PIPELINE_URL}) 
+Versione: ${config.VERSION}
+[Link Rilascio](${config.PIPELINE_URL}) 
 
 Changelogs
 
