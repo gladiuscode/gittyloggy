@@ -34,7 +34,8 @@ Then add a new gittyconfig.json file in the root of your project with the follow
   "PEOPLE_TAGS": "your pm and testers tags",
   "PIPELINE_URL": "your pipeline url",
   "VERSION": "your version",
-  "TAG": "your tag to look up to"
+  "TAG": "your tag to look up to",
+  "ONLY_MERGED_PRS": true
 }
 ```
 
