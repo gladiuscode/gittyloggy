@@ -43,6 +43,11 @@ const buildChangelogs = async () => {
       )
     : commitsWithoutTags;
 
+  if (!commitsWithOnlyMergedPRs.length)
+    return console.log(
+      `No commits found in logs. Are you sure this ${config.VERSION} version has to be released?`,
+    );
+
   const peopleTags = config.PEOPLE_TAGS.split(',')
     .map(tag => `@${tag}`)
     .join(' ');
