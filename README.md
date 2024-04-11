@@ -27,7 +27,7 @@ Add a new script to your project package.json
 }
 ```
 
-Then add a new .gitty.config.json file in the root of your project with the following properties
+Then add a new gittyconfig.json file in the root of your project with the following properties
 
 ```json5
 {
@@ -42,6 +42,6 @@ This command will output a proper changelog that you can copy and paste wherever
 
 ## Roadmap
 
-- [] Release on npm
+- [X] Release on npm
 - [] Add support for multiple languages
 - [] Add support to run plugins so that each changelog output can be further customize to meet devs needs

@@ -10,7 +10,7 @@ export interface Config {
 
 const openConfig = async () => {
   try {
-    return await readFile('./gitty.config.json', 'utf-8');
+    return await readFile('./gittyconfig.json', 'utf-8');
   } catch (error) {
     return;
   }
@@ -20,9 +20,7 @@ const ConfigUtils = {
   build: async function () {
     const rawConfig = await openConfig();
     if (!rawConfig) {
-      throw new Error(
-        '[GittyLoggy] - Please check your .gitty.config.json file',
-      );
+      throw new Error('[GittyLoggy] - Please check your gittyconfig.json file');
     }
     const config = JSON.parse(rawConfig);
 
